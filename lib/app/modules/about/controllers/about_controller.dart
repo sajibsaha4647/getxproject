@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class AboutController extends GetxController {
-  var count = 0;
+  var count = 0.obs;
 
   var name = "sajib saha";
 
@@ -9,18 +9,15 @@ class AboutController extends GetxController {
 
   void changename(String val) {
     name = val;
-    update();
   }
 
   void increment() {
-    count++;
-    update();
+    count.value++;
   }
 
   void decrement() {
-    if (count != 0) {
-      count--;
+    if (count.value != 0) {
+      count.value--;
     }
-    update();
   }
 }

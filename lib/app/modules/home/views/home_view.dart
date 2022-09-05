@@ -35,9 +35,9 @@ class HomeView extends GetView<HomeController> {
             "about",
             style: TextStyle(fontSize: 20),
           ),
-          GetBuilder<AboutController>(builder: (aaa) {
+          GetX<AboutController>(builder: (aaa) {
             return Text(
-              aaa.count.toString(),
+              aaa.count.value.toString(),
               style: const TextStyle(fontSize: 20),
             );
           }),
