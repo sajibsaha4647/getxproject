@@ -1,23 +1,26 @@
 import 'package:get/get.dart';
 
 class AboutController extends GetxController {
-  //TODO: Implement AboutController
+  var count = 0;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  var name = "sajib saha";
+
+  var details = {"name": "saha", "age": "25", "homw": "comilla"};
+
+  void changename(String val) {
+    name = val;
+    update();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  void increment() {
+    count++;
+    update();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  void decrement() {
+    if (count != 0) {
+      count--;
+    }
+    update();
   }
-
-  void increment() => count.value++;
 }
