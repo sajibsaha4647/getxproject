@@ -8,15 +8,14 @@ class UserProvider extends GetConnect {
     httpClient.baseUrl = 'YOUR-API-URL';
   }
 
-   Future<List<PostModel>?> getPosts(int page) async {
+  Future<List<PostModel>?> getPosts() async {
     String url = AppConfig.getposts;
-    print('$url');
 
     try {
       var response = await get(url);
       if (response.statusCode == 200) {
-        List<PostModel> model = response.body['Search'];
-        return postfrom
+        List<dynamic> model = response.body;
+        return postModelFromJson(model);
       } else {
         return [];
       }
@@ -25,7 +24,4 @@ class UserProvider extends GetConnect {
       return [];
     }
   }
-  
-
-
 }
